@@ -1,11 +1,10 @@
 require 'open-uri'
 require 'json'
 
-divvy_json = open("http://divvybikes.com/stations/json").read
-divvy = JSON.parse(divvy_json)
+data = JSON.parse(open("http://divvybikes.com/stations/json").read)
 
-stations = divvy["stationBeanList"]
-
-stations.each do |station|
-	puts "#{station["availableDocks"]} docks available at #{station["stationName"]}"
+data["stationBeanList"].each do |station|
+	puts "There are #{station["availableDocks"]} of #{station["totalDocks"]} docks available at #{station["stationName"]}"
 end
+
+puts "Last update: #{data["executionTime"]}"

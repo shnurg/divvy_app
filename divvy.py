@@ -1,12 +1,9 @@
 import urllib2
 import json
 
-json_data = urllib2.urlopen("http://divvybikes.com/stations/json")
-data = json.load(json_data)
+data = json.load(urllib2.urlopen("http://divvybikes.com/stations/json"))
 
-stations = data["stationBeanList"]
+for station in data["stationBeanList"]:
+	print "There are " + str(station["availableDocks"]) + " of " + str(station["totalDocks"]) + " docks available at " + station["stationName"]
 
-for station in stations:
-	loc = station["stationName"]
-	ava = station["availableDocks"]
-	print "There are " + str(ava) + " docks available at " + loc
+print "Last update: " + data["executionTime"]
