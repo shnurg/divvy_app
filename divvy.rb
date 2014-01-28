@@ -38,10 +38,10 @@ sta_data["stationBeanList"].each do |station|
 end
 
 if a.size > 1
-	a.sort_by! {|x| x[:dist]}
+	a = a.sort_by {|x| x[:dist]}
 	puts "Closest stations within #{radius} miles as of #{sta_data["executionTime"]}:"
-	for i in 0..4
-		puts "#{a[i][:name]}: #{a[i][:bikes]}/#{a[i][:docks]} bikes, #{'%.2f' % a[i][:dist]} miles away."
+	a.each do |station|
+		puts "#{station[:name]}: #{station[:bikes]}/#{staiton[:docks]} bikes, #{'%.2f' % station[:dist]} miles away."
 	end
 else 
 	puts "No stations found within #{radius} miles."
