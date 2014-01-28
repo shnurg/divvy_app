@@ -6,7 +6,7 @@ require 'json'
 # http://www.esawdust.com/blog/gps/files/HaversineFormulaInRuby.html
 def haversine_miles(lat1,lng1,lat2,lng2)
 	rad_per_deg = Math::PI / 180
-	earth_radius_miles = 3956
+	earth_radius_miles = 3963.1676
 	lat1_rad = lat1*rad_per_deg
 	lat2_rad = lat2*rad_per_deg
 	dlat_rad = (lat1-lat2)*rad_per_deg
