@@ -41,7 +41,7 @@ if a.size > 1
 	a = a.sort_by {|x| x[:dist]}
 	puts "Closest stations within #{radius} miles as of #{sta_data["executionTime"]}:"
 	a.each do |station|
-		puts "#{station[:name]}: #{station[:bikes]}/#{staiton[:docks]} bikes, #{'%.2f' % station[:dist]} miles away."
+		puts "#{station[:name]}: #{station[:bikes]}/#{station[:docks]} bikes, #{'%.2f' % station[:dist]} miles away."
 	end
 else 
 	puts "No stations found within #{radius} miles."
